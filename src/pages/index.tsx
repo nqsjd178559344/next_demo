@@ -9,8 +9,11 @@ export default function Home() {
     <div>
       <h1>home</h1>
       <Counter />
-      <Link href="/about">About</Link>
-      <Link href="/data">Data</Link>
+      <div className="flex flex-col">
+        <Link href="/about">About</Link>
+        <Link href="/data">Data</Link>
+        <Link href="/form">Form</Link>
+      </div>
     </div>
   );
 }
