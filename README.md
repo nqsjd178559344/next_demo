@@ -1,38 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+1. 初始化脚手架
+   ```ts
+   yarn create vite next_demo --template react-ts
+   ```
+2. 使用 tailwindcss 并设置 autoprefixer
 
-## Getting Started
+   ```ts
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
+   ```
 
-First, run the development server:
+   要想 autoprefixer 起作用 就要配置 package.json 中的 browserslist
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+   ```ts
+   "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+   ]
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. 使用 recoil
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+   ```ts
+      npm install -D recoil
+      // 修改main文件使得 RecoilRoot 放于 App 外
+   ```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/data](http://localhost:3000/api/data). This endpoint can be edited in `pages/api/data.ts`.
+4. 配置 eslint
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   ```ts
+     npm init @eslint/config
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+5. 配置 code-workspace 文件
 
-## Learn More
+   1. 文件 -> 将工作区另存为: 生成默认的 .code-workspace 文件
+   2. 设置 -> 搜 Code Actions On Save , 点击 在 setting.json 中编辑, 后添加 organizeImports
+   3. 设置 -> 搜 formatOnSave 并勾选
 
-To learn more about Next.js, take a look at the following resources:
+6. 安装并启动
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```ts
+   yarn
+   yarn dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+7. tsconfig.json 配置: https://www.typescriptlang.org/zh/tsconfig#extends
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+8. extra
+   1. 构建时导入: postcss-import
